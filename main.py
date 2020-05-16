@@ -20,7 +20,7 @@ class PyLocale:
         locale: aliases.Locale
     ) -> None:
         try:
-            parse(locales_path, locale)
+            self._vocabulary = parse(locales_path, locale)
         except FileNotFoundError:
             if not self._silent:
                 raise NoSuchLocaleError(

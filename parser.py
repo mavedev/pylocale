@@ -17,6 +17,8 @@ def parse(at: aliases.Path, locale: aliases.Locale) -> aliases.Vocabulary:
             )
 
         vocabulary: aliases.Vocabulary = {}
+        _fill_vocabulary(vocabulary, lines)
+        return vocabulary
 
 
 def _get_processed_lines(lines: List[str]) -> List[str]:
@@ -30,3 +32,9 @@ def _are_lines_valid(lines: List[str]) -> bool:
         not len(tokens) < 3 and tokens[1] == '='
         for tokens in [line.split() for line in lines]
     ])
+
+
+def _fill_vocabulary(vocabulary: aliases.Vocabulary, lines: List[str]) -> None:
+    for line in lines:
+        tokens = line.split()
+        vocabulary[tokens[0]] = ' '.join(tokens[2:])
