@@ -133,3 +133,6 @@ dmypy.json
 
 # Templates
 templates/
+
+# Static data
+assets/

@@ -1,5 +1,8 @@
+from app import PyLocale
+
+
 def main() -> None:
-    pass
+    translator = PyLocale('assets/translations', 'rud')
 
 
 if __name__ == '__main__':
