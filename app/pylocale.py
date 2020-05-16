@@ -1,0 +1,2 @@
+class PyLocale:
+    pass
