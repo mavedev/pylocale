@@ -1,9 +1,22 @@
+# -*- coding: utf-8 -*-
+
+"""
+pylocale library.
+A Python 3 library that allows adding static files
+with translations to the application,
+and then apply them to dynamically change text in the application.
+:copyright: (c) 2020 Mavedev
+:licence: MIT, see LICENCE for more details.
+"""
+
 import errors
 import aliases
 from parser import parse
 
 
 class PyLocale:
+    """Main class providing translations."""
+
     def __init__(
         self,
         *,
