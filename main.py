@@ -6,13 +6,14 @@ from errors import NoSuchLocaleError
 class PyLocale:
     def __init__(
         self,
-        locales_path: aliases.Path,
-        root_locale: aliases.Locale,
-        strict_mode=True
+        *,
+        at: aliases.Path,
+        root: aliases.Locale,
+        silent=False
     ) -> None:
-        self._strict_mode = strict_mode
+        self._silent = silent
         self._vocabulary: aliases.Vocabulary = {}
-        self._load_locales(locales_path, root_locale)
+        self._load_locales(at, root)
 
     def _load_locales(
         self, locales_path: aliases.Path,
@@ -21,7 +22,7 @@ class PyLocale:
         try:
             parse(locales_path, locale)
         except FileNotFoundError:
-            if self._strict_mode:
+            if not self._silent:
                 raise NoSuchLocaleError(
                     'The locale "{}" was not found'.format(locale)
                 )
