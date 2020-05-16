@@ -25,6 +25,7 @@ def _get_processed_lines(lines: List[str]) -> List[str]:
     processed: List[str] = []
     for line in lines:  # type: str
         processed.append(' '.join(line.split()))
+    return processed
 
 
 def _are_lines_valid(lines: List[str]) -> bool:
