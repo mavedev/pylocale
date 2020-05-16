@@ -29,7 +29,8 @@ class PyLocale:
         except FileNotFoundError:
             if not self._silent:
                 raise errors.NoSuchLocaleError(
-                    'The locale "{}" was not found'.format(locale)
+                    'The locale "{}" was not found at the specified path'
+                    .format(locale)
                 )
         except errors.ParserInvalidLineError as parse_error:
             if not self._silent:
