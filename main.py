@@ -31,6 +31,12 @@ class PyLocale:
                 raise errors.NoSuchLocaleError(
                     'The locale "{}" was not found'.format(locale)
                 )
+        except errors.ParserInvalidLineError as parse_error:
+            if not self._silent:
+                # Reraise the error if not in silent mode.
+                raise parse_error
+            else:
+                self._vocabulary = {} if first_time else self._root.copy()
 
     def switch(self, locale: str) -> None:
         self._load_locales(self._locales_path, locale)
