@@ -11,6 +11,7 @@ class PyLocale:
         root: aliases.Locale,
         silent=False
     ) -> None:
+        self._locales_path = at
         self._silent = silent
         self._vocabulary: aliases.Vocabulary = {}
         self._load_locales(at, root, first_time=True)
@@ -30,6 +31,9 @@ class PyLocale:
                 raise errors.NoSuchLocaleError(
                     'The locale "{}" was not found'.format(locale)
                 )
+
+    def switch(self, locale: str) -> None:
+        self._load_locales(self._locales_path, locale)
 
     def __getitem__(self, key: str) -> str:
         if not self._vocabulary.get(key):
