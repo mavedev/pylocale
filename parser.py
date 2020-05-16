@@ -1,8 +1,8 @@
 from os.path import join
 
-import app.types as types
+import aliases as aliases
 
 
-def parse(at: types.Path, locale: types.Locale) -> None:
+def parse(at: aliases.Path, locale: aliases.Locale) -> None:
     with open(join(at, locale)) as file:
         print(file.read())
