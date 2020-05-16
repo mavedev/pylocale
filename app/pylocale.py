@@ -1,5 +1,6 @@
 import app.types as types
 from .parser import parse
+from .errors import NoSuchLocaleError
 
 
 class PyLocale:
@@ -7,7 +8,7 @@ class PyLocale:
         self,
         locales_path: types.Path,
         root_locale: types.Locale,
-        strict_mode=False
+        strict_mode=True
     ) -> None:
         self._strict_mode = strict_mode
         self._vocabulary: types.Vocabulary = {}
@@ -21,4 +22,6 @@ class PyLocale:
             parse(locales_path, locale)
         except FileNotFoundError:
             if self._strict_mode:
-                raise FileNotFoundError()
+                raise NoSuchLocaleError(
+                    'The locale "{}" was not found'.format(locale)
+                )
