@@ -1,11 +1,6 @@
-# -*- coding: utf-8 -*-
-import sys
-
-
-def main(argv=None) -> None:
-    if argv is None:
-        argv = []
+def main() -> None:
+    pass
 
 
 if __name__ == '__main__':
-    main(sys.argv[1:])
+    main()
