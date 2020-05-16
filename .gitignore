@@ -133,9 +133,3 @@ dmypy.json
 
 # Templates
 templates/
-
-# Static data
-assets/
-
-# Entry point
-/__main__.py

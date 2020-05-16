@@ -2,8 +2,8 @@ from typing import List
 from os.path import join
 from os import linesep
 
-import aliases
-import errors
+import pylocale.aliases as aliases
+import pylocale.errors as errors
 
 
 def parse(at: aliases.Path, locale: aliases.Locale) -> aliases.Vocabulary:

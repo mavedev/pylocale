@@ -9,9 +9,9 @@ and then apply them to dynamically change text in the application.
 :licence: MIT, see LICENCE for more details.
 """
 
-import errors
-import aliases
-from parser import parse
+import pylocale.errors as errors
+import pylocale.aliases as aliases
+from pylocale.parser import parse
 
 
 class PyLocale:
